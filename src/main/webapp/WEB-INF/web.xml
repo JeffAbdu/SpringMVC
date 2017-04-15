@@ -1,0 +1,55 @@
+<web-app id="WebApp_ID" version="2.4"
+    xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+ 
+http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+ 
+ <display-name>My Demo App</display-name>
+ 
+ <servlet>
+    <servlet-name>MyDemoApp</servlet-name>
+    <servlet-class>
+        org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+ 
+    <init-param>
+       <param-name>contextClass</param-name>
+       <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </init-param>
+
+    <init-param>
+       <param-name>contextConfigLocation</param-name>
+       <param-value>com.demo.utils.AppConfig</param-value>
+    </init-param>
+
+<!--  // This configuration is used in case we want to use xml config instead of java based config
+      // If we want to use it, we just need to replace this <init-param> with the two above <init-param> tags.   
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/config/myDemoApp-servletConfig.xml</param-value>
+    </init-param>
+-->
+
+ </servlet>
+ 
+ <servlet-mapping>
+    <servlet-name>MyDemoApp</servlet-name>
+    <url-pattern>/</url-pattern>
+ </servlet-mapping>
+ 
+</web-app>
+
+
+
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>4.2.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>4.2.1.RELEASE</version>
+		</dependency>
